@@ -5,37 +5,27 @@ import java.util.Scanner;
 
 
 /**
- * aidslcocsi
+ * aidslcocscoci
  */
 public class Main{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String s = scanner.next();
-        String tmp = s.toLowerCase();
-        StringBuilder ans = new StringBuilder();
-
-        if (!tmp.contains("coc")){
+        if (!s.toLowerCase().contains("coc")){
             System.out.println(s);
             return;
         }
 
-        int begin = 0;
-        while (begin <= s.length() && tmp.indexOf("coc") >= 0){
-
-            int i = tmp.indexOf("coc");
-            String x = s.substring(begin,begin + i);
-            ans.append(x);
-
-            begin = begin + i + 3;
-
-            tmp = s.substring(i+3);
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < s.length();) {
+            String x = s.substring(i,i+3>s.length() ? s.length():i+3);
+            if(x.toLowerCase().equals("coc")){
+                i = i+3;
+            }else {
+                ans.append(s.charAt(i));
+                i++;
+            }
         }
-
-        if(begin < s.length()){
-            ans.append(s.substring(begin));
-        }
-
-
         System.out.println(ans.toString());
     }
 }
