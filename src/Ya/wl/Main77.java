@@ -1,5 +1,7 @@
 package Ya.wl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main77 {
@@ -55,13 +57,42 @@ public class Main77 {
                 };
 
         Scanner scanner = new Scanner(System.in);
-        String word = scanner.nextLine();
+
+
+        List<List<Character>> arr = new ArrayList<>();
+        String word = "";
+
+
+        while (scanner.hasNext()){
+            String tmp = scanner.nextLine();
+            if(!tmp.contains(",")){
+                word = tmp;
+                break;
+            }
+        }
+        scanner.close();
+
+
+
+//        while (scanner.hasNext()){
+//            String tmp = scanner.nextLine();
+//            if(tmp.contains(",")){
+//                ArrayList<Character> list = new ArrayList<>();
+//                String[] row = tmp.split(",");
+//                for(String s : row){
+//                    list.add(s.charAt(0));
+//                }
+//                arr.add(list);
+//            }else {
+//                word = tmp;
+//            }
+//        }
+
 
         if(word.length() == 0){
             System.out.println(false);
             return;
         }
-
 
         System.out.println(exist(matrix,word));
     }
