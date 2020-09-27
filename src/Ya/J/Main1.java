@@ -38,14 +38,14 @@ public class Main1 {
 
 
         if(sum(arr[i][j].a,arr[i][j].b,t) == 1){
-            dfs(i + 1, j, m, n, t+1, visited);
-            dfs(i - 1, j, m, n, t+1, visited);
+            dfs(i + 1, j, n, m, t+1, visited);
+            dfs(i - 1, j, n, m, t+1, visited);
             visited[i][j] = false;
         }
 
         if(sum(arr[i][j].a,arr[i][j].b,t) == 2){
-            dfs(i , j+1, m, n, t+1, visited);
-            dfs(i , j-1, m, n, t+1, visited);
+            dfs(i , j+1, n, m, t+1, visited);
+            dfs(i , j-1, n, m, t+1, visited);
             visited[i][j] = false;
         }
 
